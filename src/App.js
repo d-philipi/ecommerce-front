@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { useState } from "react";
+import MyContext from "./context/MyContext";
 
-function App() {
+export default function App() {
+  const [email, setEmail] = useState("");
+	const [senha, setSenha] = useState("");
+	const [checkSenha, setCheckSenha] = useState("");
+	const [nome, setNome] = useState("");
+	const [token, setToken] = useState("");
+	const config = {
+		headers: {
+			authorization: `Bearer ${token}`
+		}
+	}
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    	<GlobalStyle/>
+      <MyContext.Provider.Provider value={{token, setToken, config}}>
+      <Routes>
+        <Route path="/" 
+        element={<SignIn
+        email={email}
+        setEmail={setEmail}
+        senha={senha}
+        setSenha={setSenha}
+        />} />
+        <Route path="/sign-up" 
+        element={<SignUp
+        email={email}
+        setEmail={setEmail}
+        senha={senha}
+        setSenha={setSenha}
+        nome={nome}
+        setNome={setNome}
+        checkSenha={checkSenha}
+        setCheckSenha={setCheckSenha}
+        />}/>
+        <Route path="/home"
+        element={<Home
+        />}/>
+      </Routes>
+      </MyContext.Provider.Provider>
+	</BrowserRouter>
   );
 }
 
-export default App;
