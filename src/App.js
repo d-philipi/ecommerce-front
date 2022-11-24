@@ -1,14 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from 'react';
 import { useState } from "react";
+
+import { GlobalStyle } from './styled';
 import MyContext from "./context/MyContext";
+import SignIn from "./page/pageuser/signin";
+import SignUp from "./page/pageuser/signup";
+import Home from "./page/pagehome/home";
 
 export default function App() {
   const [email, setEmail] = useState("");
 	const [senha, setSenha] = useState("");
 	const [checkSenha, setCheckSenha] = useState("");
 	const [nome, setNome] = useState("");
+  const [image, setImage] = useState("");
+
 	const [token, setToken] = useState("");
+  const [usuario, setUsuario] = useState("");
 	const config = {
 		headers: {
 			authorization: `Bearer ${token}`
@@ -18,7 +26,7 @@ export default function App() {
   return (
     <BrowserRouter>
     	<GlobalStyle/>
-      <MyContext.Provider.Provider value={{token, setToken, config}}>
+      <MyContext.Provider value={{token, setToken, usuario, setUsuario, config}}>
       <Routes>
         <Route path="/" 
         element={<SignIn
@@ -37,13 +45,14 @@ export default function App() {
         setNome={setNome}
         checkSenha={checkSenha}
         setCheckSenha={setCheckSenha}
+        image={image}
+        setImage={setImage}
         />}/>
         <Route path="/home"
         element={<Home
         />}/>
       </Routes>
-      </MyContext.Provider.Provider>
+      </MyContext.Provider>
 	</BrowserRouter>
   );
 }
-
