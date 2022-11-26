@@ -24,7 +24,8 @@ export default function SignIn({email, setEmail, senha, setSenha}) {
     setToken(resposta.data.token);
     setUsuario({
       token: resposta.data.token,
-      name: resposta.data.name
+      name: resposta.data.name,
+      image: resposta.data.image
     })
     setEmail("");
     setSenha("");
