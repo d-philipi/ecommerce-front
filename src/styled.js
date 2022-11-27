@@ -160,7 +160,7 @@ h1{
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 22px;
     margin-left: 10px;
     color: #FFFFFF;
 }
@@ -179,6 +179,12 @@ ion-icon{
     margin: 10px;
     color: #FFFFFF;
     cursor:pointer;
+}
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor:pointer;
 }
 `
 
@@ -207,12 +213,9 @@ width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
-h1{
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: #C6C6C6;
+img{
+  width: 30px;
+  height: 30px;
 }
 h2{
     font-family: 'Raleway';
