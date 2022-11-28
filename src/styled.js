@@ -147,30 +147,23 @@ export const ItemsContainer = styled.div`
   padding: 20px;
 `;
 
-export const ItemContainer = styled.div`
-  background-color: gray;
-  width: 250px;
+export const StyledHeader = styled.div`
+  width: 100%;
+  height: 100px;
+  background-color: #A35A00;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  padding: 20px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  h1 {
-    font-size: 15px;
-    font-weight: bold;
-  }
+  position: relative;
   img {
-    border-radius: 10px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 67px;
   }
-  @media (max-width: 768px) {
-    width: 130px;
-    img {
-      width: 150px;
-      height: 150px;
-    }
+  ion-icon {
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
   }
-`;
+`

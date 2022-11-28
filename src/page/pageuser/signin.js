@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ContainerLogin, FormIn } from '../../styled';
 
 
-export default function SignIn({email, setEmail, senha, setSenha}) {
+export default function SignIn({email, setEmail, senha, setSenha, setCartEmail}) {
 
   const navigate = useNavigate();
   const {setToken, setUsuario} = useContext(MyContext);
@@ -21,11 +21,13 @@ export default function SignIn({email, setEmail, senha, setSenha}) {
   }
 
   function LoginSucesso(resposta){
+    console.log(resposta);
     setToken(resposta.data.token);
     setUsuario({
       token: resposta.data.token,
       name: resposta.data.name
     })
+    setCartEmail(resposta.data.email);
     setEmail("");
     setSenha("");
     navigate('/home');
