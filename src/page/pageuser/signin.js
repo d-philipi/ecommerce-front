@@ -35,7 +35,7 @@ export default function SignIn({email, setEmail, senha, setSenha, setCartEmail})
   }
 
   function loginFalha(erro){
-      alert(erro.response);
+      alert(erro);
   }
 
     return (
