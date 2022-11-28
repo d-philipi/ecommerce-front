@@ -7,6 +7,7 @@ import MyContext from "./context/MyContext";
 import SignIn from "./page/pageuser/signin";
 import SignUp from "./page/pageuser/signup";
 import Home from "./page/pagehome/home";
+import Cart from "./page/pagecart/cart";
 
 export default function App() {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ export default function App() {
 
 	const [token, setToken] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [carrinho, setCarrinho] = useState("");
 	const config = {
 		headers: {
 			authorization: `Bearer ${token}`
@@ -26,7 +28,7 @@ export default function App() {
   return (
     <BrowserRouter>
     	<GlobalStyle/>
-      <MyContext.Provider value={{token, setToken, usuario, setUsuario, config}}>
+      <MyContext.Provider value={{token, setToken, usuario, setUsuario, config, carrinho, setCarrinho}}>
       <Routes>
         <Route path="/" 
         element={<SignIn
@@ -50,6 +52,9 @@ export default function App() {
         />}/>
         <Route path="/home"
         element={<Home
+        />}/>
+        <Route path="/cart"
+        element={<Cart
         />}/>
       </Routes>
       </MyContext.Provider>

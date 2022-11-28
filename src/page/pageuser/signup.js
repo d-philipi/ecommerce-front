@@ -11,13 +11,16 @@ export default function SignUp({email, setEmail, senha, setSenha, nome, setNome,
   function cadastrar(e){
     e.preventDefault();
     
-    axios.post('http://localhost:5000/sign-up', {
-            name: nome,
-            email: email,
-            password: senha,
-            confirmedPassword: checkSenha,
-            image: image
-        }).then(CadastroSucesso).catch(cadastroFalha)
+    if (senha !== checkSenha){
+      alert("Senhas não correspondem!")
+    }else{
+      axios.post('http://localhost:5000/sign-up', {
+              name: nome,
+              email: email,
+              password: senha,
+              image: image
+          }).then(CadastroSucesso).catch(cadastroFalha);
+    }
   }
 
   function CadastroSucesso(resposta){
