@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 
-import { GlobalStyle } from './styled';
+import { GlobalStyle } from "./styled";
 import MyContext from "./context/MyContext";
 import SignIn from "./page/pageuser/signin";
 import SignUp from "./page/pageuser/signup";
@@ -11,19 +11,22 @@ import Cart from "./page/pagecart/cart";
 
 export default function App() {
   const [email, setEmail] = useState("");
-	const [senha, setSenha] = useState("");
-	const [checkSenha, setCheckSenha] = useState("");
-	const [nome, setNome] = useState("");
+  const [senha, setSenha] = useState("");
+  const [checkSenha, setCheckSenha] = useState("");
+  const [nome, setNome] = useState("");
   const [image, setImage] = useState("");
 
-	const [token, setToken] = useState("");
+  const [token, setToken] = useState("");
   const [usuario, setUsuario] = useState("");
+  const [cartEmail, setCartEmail] = useState("");
+  const [selectedItemsArray, setSelectedItemsArray] = useState([]);
   const [carrinho, setCarrinho] = useState("");
-	const config = {
-		headers: {
-			authorization: `Bearer ${token}`
-		}
-	}
+
+  const config = {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
   
   return (
     <BrowserRouter>
@@ -52,12 +55,18 @@ export default function App() {
         />}/>
         <Route path="/home"
         element={<Home
+        cartEmail={cartEmail}
+        selectedItemsArray={selectedItemsArray}
+        setSelectedItemsArray={setSelectedItemsArray}
         />}/>
         <Route path="/cart"
         element={<Cart
+        cartEmail={cartEmail}
+        selectedItemsArray={selectedItemsArray}
+        setSelectedItemsArray={setSelectedItemsArray}
         />}/>
       </Routes>
       </MyContext.Provider>
-	</BrowserRouter>
+    </BrowserRouter>
   );
 }
