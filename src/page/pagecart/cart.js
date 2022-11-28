@@ -13,9 +13,11 @@ import { useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:5000/cart";
 
-export default function Cart({ cartEmail }) {
+export default function Cart({ cartEmail, selectedItemsArray, setSelectedItemsArray }) {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
+
+  console.log(selectedItemsArray);
 
   useEffect(() => {
     axios
@@ -37,8 +39,23 @@ export default function Cart({ cartEmail }) {
     }
   }
 
-  function removeItemFromCart() {
+  function removeItemFromCart(item) {
+    const newItens = items.filter((newItem) => newItem !== item);
+    setItems(newItens);
+    setSelectedItemsArray(newItens);
+    criaCarrinho(newItens);
+  }
 
+  function criaCarrinho(cart) {
+    axios
+      .post(URL, {
+        cartEmail,
+        cart,
+      })
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
@@ -55,7 +72,10 @@ export default function Cart({ cartEmail }) {
                   <img src={item.image} alt={item.name} />
                   <h1>{item.name.toUpperCase()}</h1>
                   <h1>R${parseFloat(item.price).toFixed(2)}</h1>
-                  <ion-icon name="trash-outline" onClick={() => removeItemFromCart(item)}></ion-icon>
+                  <ion-icon
+                    name="trash-outline"
+                    onClick={() => removeItemFromCart(item)}
+                  ></ion-icon>
                 </StyledItemCart>
               );
             })

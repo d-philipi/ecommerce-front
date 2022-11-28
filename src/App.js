@@ -20,6 +20,7 @@ export default function App() {
   const [usuario, setUsuario] = useState("");
 
   const [cartEmail, setCartEmail] = useState("");
+  const [selectedItemsArray, setSelectedItemsArray] = useState([]);
 
   const config = {
     headers: {
@@ -63,8 +64,26 @@ export default function App() {
               />
             }
           />
-          <Route path="/home" element={<Home cartEmail={cartEmail} />} />
-          <Route path="/cart" element={<Cart cartEmail={cartEmail} />} />
+          <Route
+            path="/home"
+            element={
+              <Home
+                cartEmail={cartEmail}
+                selectedItemsArray={selectedItemsArray}
+                setSelectedItemsArray={setSelectedItemsArray}
+              />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cartEmail={cartEmail}
+                selectedItemsArray={selectedItemsArray}
+                setSelectedItemsArray={setSelectedItemsArray}
+              />
+            }
+          />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>

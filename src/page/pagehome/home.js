@@ -6,11 +6,9 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const URL = "http://localhost:5000/home";
-let itens = [];
 
-export default function Home({cartEmail}) {
+export default function Home({cartEmail, selectedItemsArray, setSelectedItemsArray}) {
   const [itemsArray, setItemsArray] = useState([]);
-  const [selectedItemsArray, setSelectedItemsArray] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +24,7 @@ export default function Home({cartEmail}) {
 
   function selecionaItem(item) {
     if (!selectedItemsArray.includes(item)) {
-      itens = [...selectedItemsArray, item];
+      const itens = [...selectedItemsArray, item];
       setSelectedItemsArray(itens);
       criaCarrinho(itens);
     } else {
@@ -35,6 +33,8 @@ export default function Home({cartEmail}) {
       criaCarrinho(newItens);
     }
   }
+
+  console.log(selectedItemsArray);
 
   function criaCarrinho(cart) {
     const email = cartEmail;
@@ -47,8 +47,6 @@ export default function Home({cartEmail}) {
       console.log(err);
     })
   }
-
-  console.log(selectedItemsArray);
 
   return (
     <>
