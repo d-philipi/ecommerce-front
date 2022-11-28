@@ -25,7 +25,8 @@ export default function SignIn({email, setEmail, senha, setSenha, setCartEmail})
     setToken(resposta.data.token);
     setUsuario({
       token: resposta.data.token,
-      name: resposta.data.name
+      name: resposta.data.name,
+      image: resposta.data.image
     })
     setCartEmail(resposta.data.email);
     setEmail("");

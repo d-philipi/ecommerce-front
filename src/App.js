@@ -18,73 +18,54 @@ export default function App() {
 
   const [token, setToken] = useState("");
   const [usuario, setUsuario] = useState("");
-
   const [cartEmail, setCartEmail] = useState("");
   const [selectedItemsArray, setSelectedItemsArray] = useState([]);
+  const [carrinho, setCarrinho] = useState("");
 
   const config = {
     headers: {
       authorization: `Bearer ${token}`,
     },
   };
-
+  
   return (
     <BrowserRouter>
-      <GlobalStyle />
-      <MyContext.Provider
-        value={{ token, setToken, usuario, setUsuario, config }}
-      >
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <SignIn
-                email={email}
-                setEmail={setEmail}
-                senha={senha}
-                setSenha={setSenha}
-                setCartEmail={setCartEmail}
-              />
-            }
-          />
-          <Route
-            path="/sign-up"
-            element={
-              <SignUp
-                email={email}
-                setEmail={setEmail}
-                senha={senha}
-                setSenha={setSenha}
-                nome={nome}
-                setNome={setNome}
-                checkSenha={checkSenha}
-                setCheckSenha={setCheckSenha}
-                image={image}
-                setImage={setImage}
-              />
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <Home
-                cartEmail={cartEmail}
-                selectedItemsArray={selectedItemsArray}
-                setSelectedItemsArray={setSelectedItemsArray}
-              />
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cartEmail={cartEmail}
-                selectedItemsArray={selectedItemsArray}
-                setSelectedItemsArray={setSelectedItemsArray}
-              />
-            }
-          />
-        </Routes>
+    	<GlobalStyle/>
+      <MyContext.Provider value={{token, setToken, usuario, setUsuario, config, carrinho, setCarrinho}}>
+      <Routes>
+        <Route path="/" 
+        element={<SignIn
+        email={email}
+        setEmail={setEmail}
+        senha={senha}
+        setSenha={setSenha}
+        />} />
+        <Route path="/sign-up" 
+        element={<SignUp
+        email={email}
+        setEmail={setEmail}
+        senha={senha}
+        setSenha={setSenha}
+        nome={nome}
+        setNome={setNome}
+        checkSenha={checkSenha}
+        setCheckSenha={setCheckSenha}
+        image={image}
+        setImage={setImage}
+        />}/>
+        <Route path="/home"
+        element={<Home
+        cartEmail={cartEmail}
+        selectedItemsArray={selectedItemsArray}
+        setSelectedItemsArray={setSelectedItemsArray}
+        />}/>
+        <Route path="/cart"
+        element={<Cart
+        cartEmail={cartEmail}
+        selectedItemsArray={selectedItemsArray}
+        setSelectedItemsArray={setSelectedItemsArray}
+        />}/>
+      </Routes>
       </MyContext.Provider>
     </BrowserRouter>
   );

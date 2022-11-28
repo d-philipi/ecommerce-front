@@ -245,3 +245,96 @@ export const StyledButton = styled.button`
     font-weight: 400;
   }
 `;
+
+export const ContainerProducts = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 25px;
+`;
+
+export const TituloProducts = styled.div`
+width: 100%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+h1{
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    margin-left: 10px;
+    color: #FFFFFF;
+}
+`;
+
+export const TopBar = styled.div`
+width: 100%;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+ion-icon{
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+    color: #FFFFFF;
+    cursor:pointer;
+}
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor:pointer;
+}
+`;
+
+export const ContainerCarregamento = styled.div`
+    width: 100%;
+    height: 667px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 200px;
+    }
+`;
+
+export const ContainerList = styled.ul`
+width: 326px;
+height: 446px;
+background: #FFFFFF;
+border-radius: 5px;
+padding: 10px;
+position: relative;
+`;
+
+export const Li = styled.li`
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+img{
+  width: 30px;
+  height: 30px;
+}
+h2{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+h3{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: ${props => props.positive ? '#03AC00' : '#C70000'};
+}
+`;
