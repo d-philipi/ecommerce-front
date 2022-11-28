@@ -7,6 +7,7 @@ import MyContext from "./context/MyContext";
 import SignIn from "./page/pageuser/signin";
 import SignUp from "./page/pageuser/signup";
 import Home from "./page/pagehome/home";
+import Cart from "./page/pagecart/cart";
 
 export default function App() {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export default function App() {
   const [usuario, setUsuario] = useState("");
 
   const [cartEmail, setCartEmail] = useState("");
-  
+
   const config = {
     headers: {
       authorization: `Bearer ${token}`,
@@ -63,6 +64,7 @@ export default function App() {
             }
           />
           <Route path="/home" element={<Home cartEmail={cartEmail} />} />
+          <Route path="/cart" element={<Cart cartEmail={cartEmail} />} />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>

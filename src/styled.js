@@ -150,7 +150,7 @@ export const ItemsContainer = styled.div`
 export const StyledHeader = styled.div`
   width: 100%;
   height: 100px;
-  background-color: #A35A00;
+  background-color: #a35a00;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -166,4 +166,82 @@ export const StyledHeader = styled.div`
     right: 0;
     margin-right: 10px;
   }
-`
+`;
+
+export const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const StyledCartContainer = styled.div`
+  background-color: white;
+  width: 50%;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  @media (max-width: 650px) {
+    width: 80%;
+  }
+`;
+
+export const StyledItemCart = styled.div`
+  background-color: #a35a00;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+  img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 5px;
+  }
+  h1 {
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    margin-right: 10px;
+  }
+  ion-icon {
+    color: white;
+    font-size: 20px;
+    margin-right: 5px;
+  }
+  @media (max-width: 650px) {
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+    }
+    h1 {
+      font-size: 12px;
+      font-weight: 200;
+    }
+  }
+`;
+
+export const StyledButton = styled.button`
+  background-color: darkolivegreen;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  h1 {
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+  }
+`;
