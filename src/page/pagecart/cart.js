@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import MyContext from "../../context/MyContext";
-import { ContainerProducts, TituloProducts, TopBar } from "../../styled";
+import { ContainerProducts, TituloProducts, TopBar, ConcluirCompra } from "../../styled";
 import ListProducts from "./listproducts";
+import Swal from 'sweetalert2';
 
 export default function Cart(){
 
+    const Swal = require('sweetalert2');
     const navigate = useNavigate();
     const { usuario } = useContext(MyContext);
 
@@ -15,6 +17,20 @@ export default function Cart(){
 
     function home (){
         navigate("/home");
+    }
+
+    function finalizar(){
+        Swal.fire({
+            title: '',
+            width: 248,
+            text: `Tem certeza que deseja finalizar sua compra?`,
+            showCancelButton: true,
+            cancelButtonColor:'#CECECE',
+            cancelButtonText: 'Não',
+            confirmButtonColor: '#FF4791',
+            confirmButtonText: 'Sim',
+            background:'#FFFFFF',
+        })
     }
 
     return (
@@ -33,6 +49,9 @@ export default function Cart(){
                 </h1>
             </TituloProducts>
             <ListProducts/>
+            <ConcluirCompra onClick={finalizar}>
+                <p>Finalizar compra</p>
+            </ConcluirCompra>
         </ContainerProducts>
     )
 }

@@ -174,61 +174,6 @@ export const StyledContainer = styled.div`
   align-items: center;
 `;
 
-export const StyledCartContainer = styled.div`
-  background-color: white;
-  width: 50%;
-  border-radius: 5px;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  @media (max-width: 650px) {
-    width: 80%;
-  }
-`;
-
-export const StyledItemCart = styled.div`
-  background-color: #a35a00;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  padding: 5px;
-  margin: 5px 0;
-  border-radius: 5px;
-  img {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-    border-radius: 5px;
-  }
-  h1 {
-    color: white;
-    font-size: 25px;
-    font-weight: 400;
-    margin-right: 10px;
-  }
-  ion-icon {
-    color: white;
-    font-size: 20px;
-    margin-right: 5px;
-  }
-  @media (max-width: 650px) {
-    img {
-      width: 50px;
-      height: 50px;
-      margin-right: 20px;
-    }
-    h1 {
-      font-size: 12px;
-      font-weight: 200;
-    }
-  }
-`;
-
 export const StyledButton = styled.button`
   background-color: darkolivegreen;
   width: 200px;
@@ -307,7 +252,7 @@ export const ContainerCarregamento = styled.div`
 
 export const ContainerList = styled.ul`
 width: 326px;
-height: 446px;
+height: 400px;
 background: #FFFFFF;
 border-radius: 5px;
 padding: 10px;
@@ -335,6 +280,50 @@ h3{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: ${props => props.positive ? '#03AC00' : '#C70000'};
+    color: #03ac00;
 }
 `;
+
+export const Saldo = styled.li`
+width: 90%;
+position: absolute;
+bottom: 0;
+left: 10;
+display: flex;
+justify-content: space-between;
+align-items: center;
+p{
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+}
+h1{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    color: #03AC00;
+}
+`
+
+export const ConcluirCompra = styled.button`
+width: 326px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #03ac00;
+border-radius: 5px;
+border: 1px solid #03ac00;
+cursor: pointer;
+
+p{
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    color: #FFFFFF;
+}
+`

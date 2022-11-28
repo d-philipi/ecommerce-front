@@ -39,6 +39,7 @@ export default function App() {
         setEmail={setEmail}
         senha={senha}
         setSenha={setSenha}
+        setCartEmail={setCartEmail}
         />} />
         <Route path="/sign-up" 
         element={<SignUp
